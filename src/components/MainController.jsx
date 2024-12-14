@@ -5,7 +5,9 @@ function MainController() {
     return (
         <>
             <main>
-                <CardController />
+                <div className="d-flex flex-wrap">
+                    <CardController />
+                </div>
             </main>
         </>
     )
