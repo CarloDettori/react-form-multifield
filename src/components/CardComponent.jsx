@@ -9,13 +9,10 @@ function CardComponent(props) {
     let trueCards = [];
     let template = [];
     posts.filter((element, index) => {
-        if (element.published === true) {
+        if (element.published == true) {
             trueCards.push(element);
         }
-        for (let i = 0; i < trueCards; i++) {
-            if (element.published === false)
-                trueCards.splice(index, 1)
-        }
+
         //console.log(trueCards)
         return trueCards
     }).map((element, index) => {
