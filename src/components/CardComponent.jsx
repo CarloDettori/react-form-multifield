@@ -1,21 +1,10 @@
 "use strict"
 import ButtonComponent from "./ButtonComponent";
-import posts from "../data/posts";
 import PostSelectorComponent from "./PostSelectorComponent";
 
-//promemoria: aggiungere alla funzione card controllers una modo per inserire in una array dedicata ad ogni post
-
-function CardComponent(props) {
-    let trueCards = [];
+function CardComponent(truePosts) {
     let template = [];
-    posts.filter((element, index) => {
-        if (element.published == true) {
-            trueCards.push(element);
-        }
-
-        //console.log(trueCards)
-        return trueCards
-    }).map((element, index) => {
+    truePosts.map((element, index) => {
         let postTags = [];
         element.tags.map((element) => {
             postTags.push(<li className="post-tags" id={index}>{element}</li>);

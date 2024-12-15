@@ -9,7 +9,7 @@ function MainComponent() {
         <>
             <main>
                 <div className="d-flex flex-wrap">
-                    <CardComponent title="truePosts" posts={truePosts} />
+                    <CardComponent posts={truePosts} />
                 </div>
             </main>
         </>
