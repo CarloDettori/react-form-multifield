@@ -1,25 +1,34 @@
 "use strict"
 import ButtonComponent from "./ButtonComponent";
-import PostSelectorComponent from "./PostSelectorComponent";
 import posts from "../data/posts";
+import PostSelectorComponent from "./PostSelectorComponent";
 
 //promemoria: aggiungere alla funzione card controllers una modo per inserire in una array dedicata ad ogni post
 
 function CardComponent(props) {
+    let trueCards = [];
     let template = [];
-    PostSelectorComponent.map((element, index) => {
+    posts.filter((element) => {
+
+        if (props.published == true) {
+            trueCards.push(element);
+        }
+        //console.log(trueCards)
+        return trueCards
+
+    }).map((element, index) => {
         let postTags = [];
-        let templateTags = [];
         element.tags.map((element) => {
-            postTags.push(<li id={index}>{element}</li>);
+            postTags.push(<li className="post-tags" id={index}>{element}</li>);
         });
+        //console.log(postTags)
         template.push(<div id="element.id" className="card">
-            <img src="{props.img}" alt="600x400img" />
+            <img src={element.image} alt="600x400img" />
             <div className="info">
                 <div className="d-flex">
                     <h3>{element.title}</h3>
-                    <ul>
-                        {postTags.join()}
+                    <ul className="d-flex">
+                        {postTags}
                     </ul>
                 </div>
                 <p>{element.content}</p>
@@ -27,6 +36,7 @@ function CardComponent(props) {
             </div>
         </div >)
     })
+    //console.log(template)
     return template
 }
 

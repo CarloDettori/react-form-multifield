@@ -4,12 +4,12 @@ import posts from "../data/posts";
 
 //promemoria: aggiungere alla funzione card controllers una modo per inserire in una array dedicata ad ogni post
 
-function PostSelectorComponent({ published }) {
-    let selectedPosts = posts.filter((element) => {
-        return published == true
+function PostSelectorComponent(props) {
+    let selectedPosts = posts.filter(() => {
+        return props.published == true
     });
-    return selectedPosts;
     console.log(selectedPosts)
+    return selectedPosts;
 };
 
 
