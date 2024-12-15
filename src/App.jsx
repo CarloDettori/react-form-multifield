@@ -1,17 +1,17 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useState } from 'react'
-import HeaderController from './components/HeaderController'
-import FooterController from './components/FooterController'
-import MainController from './components/MainController'
+import HeaderComponent from './components/HeaderComponent'
+import FooterComponent from './components/FooterComponent'
+import MainComponent from './components/MainComponent'
 import './App.css'
 
 function App() {
 
   return (
     <>
-      <HeaderController />
-      <MainController />
-      <FooterController />
+      <HeaderComponent />
+      <MainComponent />
+      <FooterComponent />
     </>
   )
 }

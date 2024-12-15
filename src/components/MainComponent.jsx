@@ -1,16 +1,16 @@
 "use strict"
-import CardController from "./CardController";
+import CardComponent from "./CardComponent";
 
-function MainController() {
+function MainComponent() {
     return (
         <>
             <main>
                 <div className="d-flex flex-wrap">
-                    <CardController />
+                    <CardComponent />
                 </div>
             </main>
         </>
     )
 }
 
-export default MainController;
+export default MainComponent;

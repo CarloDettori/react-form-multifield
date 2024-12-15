@@ -1,6 +1,6 @@
 "use strict"
 
-function HeaderController() {
+function HeaderComponent() {
     return (<>
         <header id="header">
             <h1>Il mio blog</h1>
@@ -9,4 +9,4 @@ function HeaderController() {
     )
 }
 
-export default HeaderController;
+export default HeaderComponent;

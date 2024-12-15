@@ -1,10 +1,10 @@
 "use strict"
 
-function ButtonController() {
+function ButtonComponent() {
     return (<>
         <button id="button" type="button" className="btn btn-warning">Leggi di piu</button>
     </>
     )
 }
 
-export default ButtonController;
+export default ButtonComponent;

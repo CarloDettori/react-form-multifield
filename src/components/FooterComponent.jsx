@@ -1,6 +1,6 @@
 "use strict"
 
-function FooterController() {
+function FooterComponent() {
     return (
         <>
             <footer id="footer">
@@ -10,4 +10,4 @@ function FooterController() {
     )
 }
 
-export default FooterController;
+export default FooterComponent;
