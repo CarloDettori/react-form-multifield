@@ -8,7 +8,7 @@ function PostSelectorComponent(props) {
     let selectedPosts = posts.filter(() => {
         return props.published == true
     });
-    console.log(selectedPosts)
+    //console.log(selectedPosts)
     return selectedPosts;
 };
 

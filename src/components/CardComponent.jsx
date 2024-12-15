@@ -8,14 +8,16 @@ import PostSelectorComponent from "./PostSelectorComponent";
 function CardComponent(props) {
     let trueCards = [];
     let template = [];
-    posts.filter((element) => {
-
-        if (props.published == true) {
+    posts.filter((element, index) => {
+        if (element.published === true) {
             trueCards.push(element);
+        }
+        for (let i = 0; i < trueCards; i++) {
+            if (element.published === false)
+                trueCards.splice(index, 1)
         }
         //console.log(trueCards)
         return trueCards
-
     }).map((element, index) => {
         let postTags = [];
         element.tags.map((element) => {
