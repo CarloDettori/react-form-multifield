@@ -10,7 +10,7 @@ function CardComponent(props) {
             postTags.push(<li className="post-tags" id={index}>{element}</li>);
         });
         //console.log(postTags)
-        template.push(<div id="element.id" className="card">
+        template.push(<div id={index} className="card">
             <img src={element.image} alt="600x400img" />
             <div className="info">
                 <div className="d-flex">
