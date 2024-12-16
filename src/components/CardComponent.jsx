@@ -2,7 +2,7 @@
 import ButtonComponent from "./ButtonComponent";
 import PostSelectorComponent from "./PostSelectorComponent";
 
-function CardComponent(truePosts) {
+function CardComponent(props) {
     let template = [];
     truePosts.map((element, index) => {
         let postTags = [];
