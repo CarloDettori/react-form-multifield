@@ -3,7 +3,7 @@ import { useState } from 'react'
 import HeaderComponent from './components/HeaderComponent'
 import FooterComponent from './components/FooterComponent'
 import MainComponent from './components/MainComponent'
-import Form from "./components/Form";
+import MyForm from "./components/myForm";
 import './App.css'
 
 function App() {
@@ -12,7 +12,7 @@ function App() {
     <>
       <HeaderComponent />
       <MainComponent />
-      <Form action="" />
+      <MyForm />
       <FooterComponent />
 
     </>

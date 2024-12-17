@@ -72,3 +72,14 @@ body {
 #button {
     color: white
 }
+
+section {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+form {
+    max-width: 600px;
+    margin: 0 auto 100px;
+    padding-top: 40px;
+}

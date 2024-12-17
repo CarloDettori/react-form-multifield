@@ -4,14 +4,14 @@ import CardComponent from "./CardComponent";
 import posts from "../data/posts";
 
 
-const bestPost = {
-    id: 2,
-    title: "Carlo lorem ipsum",
-    image: 'https://picsum.photos/600/400',
-    content:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit animi unde quasi enim non esse ratione voluptas voluptate, officiis veritatis magni blanditiis possimus nobis cum id inventore corporis deserunt hic.",
-    tags: ["js", "css"],
-};
+// const bestPost = {
+//     id: 2,
+//     title: "Carlo lorem ipsum",
+//     image: 'https://picsum.photos/600/400',
+//     content:
+//         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit animi unde quasi enim non esse ratione voluptas voluptate, officiis veritatis magni blanditiis possimus nobis cum id inventore corporis deserunt hic.",
+//     tags: ["js", "css"],
+// };
 
 function MainComponent() {
     const postList = [...posts];
