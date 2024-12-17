@@ -32,9 +32,9 @@ function MainComponent() {
                 </div>
             </main>
 
-            <aside>
+            {/* <aside>
                 <CardComponent key={`best-card-${bestPost.id}`} element={bestPost} />
-            </aside>
+            </aside> */}
         </>
     )
 }
