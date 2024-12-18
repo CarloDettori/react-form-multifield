@@ -4,22 +4,29 @@ import posts from "../data/posts";
 const newPost = {
     title: '',
     content: '',
+
 }
+
 
 function MyForm() {
     const [myPost, setMyPost] = useState(newPost)
+    const [postList, setPostList] = useState([]);
 
     function handleImput(ev) {
-        console.log(ev)
-        let fakeNewPost = { ...myPost }
-        fakeNewPost[ev.target.name] = ev.target.value;
-        //setMyPost({ ...fakeNewPost, [e.target.name]: e.target.value });
+        //alert(ev)
+        //let fakeNewPost = { ...myPost }
+        //fakeNewPost[ev.target.name] = ev.target.value;
+        setMyPost({ ...myPost, [ev.target.name]: ev.target.value });
+        //setMyPost(fakeNewPost)
+
     }
 
     function handleSubmit(ev) {
         ev.preventDefault()
-        console.log(myPost.title)
-        console.log(myPost.content)
+        //console.log(myPost.title)
+        //console.log(myPost.content)
+        setPostList([...postList, myPost]);
+        setMyPost(newPost);
     }
 
     return (
