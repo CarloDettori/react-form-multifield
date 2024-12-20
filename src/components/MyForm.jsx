@@ -2,9 +2,12 @@ import { useState } from "react";
 import posts from "../data/posts";
 
 const newPost = {
+    id: 0,
     title: '',
+    image: '',
     content: '',
-
+    tags: [],
+    published: null,
 }
 
 
