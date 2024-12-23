@@ -1,7 +1,7 @@
 
 
 import CardComponent from "./CardComponent";
-
+import TagList from "./TagList";
 import MyForm from "./myForm";
 
 
@@ -26,7 +26,7 @@ function MainComponent({ pubPosts }) {
                     ))}
 
                 </div>
-                <MyForm posts={<TagList />} />
+                <MyForm tags={<TagList />} />
             </main>
 
             {/* <aside>

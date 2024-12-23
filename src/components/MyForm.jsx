@@ -12,7 +12,7 @@ const newPost = {
 }
 
 
-function MyForm({ posts }) {
+function MyForm() {
     const [myPost, setMyPost] = useState(newPost)
     const [postList, setPostList] = useState([]);
 
@@ -80,7 +80,7 @@ function MyForm({ posts }) {
                 /*post tag */
                 <ul className="d-flex flex-wrap">
                     {Taglist.map((tag, index) => (
-                        <CheckTagComponent key={`tagOption-${tag[index]}`} tags={<Taglist posts={posts} />} />
+                        <CheckTagComponent key={`tagOption-${tag[index]}`} tag={tag} />
                     ))}
 
                 </ul>

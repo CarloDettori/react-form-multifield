@@ -5,9 +5,14 @@
 function PublishedPostComponent({ posts }) {
     const postList = [...posts];
     console.log(postList);
-
-    const truePosts = postList.filter((element) => element.published === true);
+    const truePosts = [];
+    postList.filter((element) => {
+        if (element.published === true) {
+            truePosts.push(element);
+        }
+    });
     console.log(truePosts);
+    return truePosts;
 };
 
 
