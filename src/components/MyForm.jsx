@@ -1,5 +1,6 @@
 import { useState } from "react";
-import posts from "../data/posts";
+import CheckTagComponent from "./CheckTagComponent";
+import Taglist from "./TagList";
 
 const newPost = {
     id: 0,
@@ -7,11 +8,11 @@ const newPost = {
     image: '',
     content: '',
     tags: [],
-    published: null,
+    published: false,
 }
 
 
-function MyForm() {
+function MyForm({ posts }) {
     const [myPost, setMyPost] = useState(newPost)
     const [postList, setPostList] = useState([]);
 
@@ -26,10 +27,13 @@ function MyForm() {
 
     function handleSubmit(ev) {
         ev.preventDefault()
+        const newPostList = [...postList];
+        newPostList.push(myPost)
         //console.log(myPost.title)
         //console.log(myPost.content)
         setPostList([...postList, myPost]);
-        setMyPost(newPost);
+        //setMyPost(newPost);
+        alert(myPost.title + " " + myPost.content)
     }
 
     return (
@@ -73,6 +77,13 @@ function MyForm() {
                         name="content"
                     />
                 </div>
+                /*post tag */
+                <ul className="d-flex flex-wrap">
+                    {Taglist.map((tag, index) => (
+                        <CheckTagComponent key={`tagOption-${tag[index]}`} tags={<Taglist posts={posts} />} />
+                    ))}
+
+                </ul>
 
                 <button type="submit" className="btn btn-primary">Submit</button>
 

@@ -1,6 +1,6 @@
 "use strict"
 import ButtonComponent from "./ButtonComponent";
-import PostSelectorComponent from "./PostSelectorComponent";
+
 
 function CardComponent({ element }) {
 

@@ -1,7 +1,8 @@
-"use strict";
+
 
 import CardComponent from "./CardComponent";
-import posts from "../data/posts";
+
+import MyForm from "./myForm";
 
 
 // const bestPost = {
@@ -13,23 +14,19 @@ import posts from "../data/posts";
 //     tags: ["js", "css"],
 // };
 
-function MainComponent() {
-    const postList = [...posts];
-    console.log(postList);
-
-    const truePosts = postList.filter((element) => element.published === true);
-    console.log(truePosts);
-
+function MainComponent({ pubPosts }) {
+    console.log(pubPosts)
 
     return (
         <>
             <main>
                 <div className="d-flex flex-wrap">
-                    {truePosts.map((post) => (
+                    {pubPosts.map((post) => (
                         <CardComponent key={`card-${post.id}`} element={post} />
                     ))}
 
                 </div>
+                <MyForm posts={<TagList />} />
             </main>
 
             {/* <aside>
