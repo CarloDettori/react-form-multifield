@@ -1,5 +1,5 @@
 
-
+import PublishedPostComponent from "./PublishedPostComponent";
 import CardComponent from "./CardComponent";
 import TagList from "./TagList";
 import MyForm from "./myForm";
@@ -14,19 +14,21 @@ import MyForm from "./myForm";
 //     tags: ["js", "css"],
 // };
 
-function MainComponent({ pubPosts }) {
-    console.log(pubPosts)
+function MainComponent() {
+    const publishedPosts = PublishedPostComponent();
+    const tagList = TagList();
+    console.log(publishedPosts)
 
     return (
         <>
             <main>
                 <div className="d-flex flex-wrap">
-                    {pubPosts.map((post) => (
+                    {publishedPosts.map((post) => (
                         <CardComponent key={`card-${post.id}`} element={post} />
                     ))}
 
                 </div>
-                <MyForm tags={<TagList />} />
+                <MyForm tags={tagList} />
             </main>
 
             {/* <aside>

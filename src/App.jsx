@@ -12,7 +12,7 @@ function App() {
   return (
     <>
       <HeaderComponent />
-      <MainComponent pubPosts={<PublishedPostComponent posts={posts} />} />
+      <MainComponent />
       <FooterComponent />
 
     </>

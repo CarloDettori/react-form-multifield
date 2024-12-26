@@ -1,6 +1,6 @@
 import { useState } from "react";
 import CheckTagComponent from "./CheckTagComponent";
-import Taglist from "./TagList";
+import TagList from "./TagList";
 
 const newPost = {
     id: 0,
@@ -15,6 +15,9 @@ const newPost = {
 function MyForm() {
     const [myPost, setMyPost] = useState(newPost)
     const [postList, setPostList] = useState([]);
+    const tagList = TagList()
+    console.log(tagList)
+
 
     function handleImput(ev) {
         //alert(ev)
@@ -79,7 +82,7 @@ function MyForm() {
                 </div>
                 /*post tag */
                 <ul className="d-flex flex-wrap">
-                    {Taglist.map((tag, index) => (
+                    {tagList.map((tag, index) => (
                         <CheckTagComponent key={`tagOption-${tag[index]}`} tag={tag} />
                     ))}
 
