@@ -35,7 +35,21 @@ h3 {
 li {
     list-style-type: none;
     padding: 10px;
+    padding-top: 0;
 }
+
+li:nth-child(1) {
+    padding-left: 0;
+}
+
+.tag-list {
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 0;
+    padding-top: 0;
+}
+
+
 
 #header {
     padding: 30px;

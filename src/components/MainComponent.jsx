@@ -2,7 +2,7 @@
 import PublishedPostComponent from "./PublishedPostComponent";
 import CardComponent from "./CardComponent";
 import TagList from "./TagList";
-import MyForm from "./myForm";
+import MyForm from "./MyForm";
 
 
 // const bestPost = {

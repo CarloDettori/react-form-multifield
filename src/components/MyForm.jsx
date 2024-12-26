@@ -80,8 +80,9 @@ function MyForm() {
                         name="content"
                     />
                 </div>
-                /*post tag */
-                <ul className="d-flex flex-wrap">
+                {/*post tag */}
+                <p>New Post Tags</p>
+                <ul className="d-flex flex-wrap tag-list">
                     {tagList.map((tag, index) => (
 
                         < CheckTagComponent key={`tagOption-${index}`} tag={tag} />
