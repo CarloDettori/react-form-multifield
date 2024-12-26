@@ -5,13 +5,13 @@ function CheckTagComponent({ tag }) {
 
 
     return (<>
-        <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                <label class="form-check-label" for="flexCheckDefault">
+        <div className="form-check" key={tag}>
+            <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <label className="form-check-label" htmlFor="flexCheckDefault">
                     {tag}
                 </label>
             </input>
-        </div>
+        </div >
 
     </>
     )
