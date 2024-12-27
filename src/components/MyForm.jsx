@@ -23,7 +23,13 @@ function MyForm() {
         //alert(ev)
         //let fakeNewPost = { ...myPost }
         //fakeNewPost[ev.target.name] = ev.target.value;
-        setMyPost({ ...myPost, [ev.target.name]: ev.target.value });
+        let value;
+        if (ev.target.type === "checkbox") {
+            value = ev.target.checked
+        } else {
+            value = ev.target.value
+        }
+        setMyPost({ ...myPost, [ev.target.name]: value });
         //setMyPost(fakeNewPost)
 
     }
@@ -36,7 +42,8 @@ function MyForm() {
         //console.log(myPost.content)
         setPostList([...postList, myPost]);
         //setMyPost(newPost);
-        alert(myPost.title + " " + myPost.content)
+        console.log("-1title: " + myPost.title + " -2iamge: " + myPost.image + " -3content: " + myPost.content + " -4tags: " + myPost.tags + " -5published: " + myPost.published)
+
     }
 
     return (
@@ -66,8 +73,13 @@ function MyForm() {
 
                 {/* post image */}
                 <div className="mb-3">
-                    <label htmlFor="formFile" className="form-label"><span className="form-title">New post image</span></label>
-                    <input className="form-control" type="file" id="formFile" />
+                    <label htmlFor="formFile" className="form-label"><span className="form-title">New Post Image</span></label>
+                    <input
+                        className="form-control"
+                        type="file"
+                        id="formFile"
+                        name="image"
+                        onChange={(ev) => handleImput(ev)} />
                 </div>
 
                 {/* post content */}
@@ -98,10 +110,16 @@ function MyForm() {
                 </ul>
                 <br />
                 {/*post publishing */}
-                <p className="form-title">New Post publishing status </p>
+                <p className="form-title">New Post Publishing Status </p>
                 <div className="d-flex" >
                     <p className="go-to-dx">Is new post published?</p>
-                    <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                    <input
+                        className="form-check-input"
+                        type="checkbox"
+                        value=""
+                        id="flexCheckDefault"
+                        onChange={(ev) => handleImput(ev)}
+                    />
                     <label className="form-check-label" htmlFor="flexCheckDefault">
                         yes
                     </label>
