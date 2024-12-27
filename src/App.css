@@ -42,6 +42,10 @@ li:nth-child(1) {
     padding-left: 0;
 }
 
+.form-title {
+    font-weight: 600;
+}
+
 .tag-list {
     display: flex;
     justify-content: flex-start;
@@ -49,7 +53,10 @@ li:nth-child(1) {
     padding-top: 0;
 }
 
-
+#flexCheckDefault {
+    margin: 6px;
+    margin-left: 20px;
+}
 
 #header {
     padding: 30px;

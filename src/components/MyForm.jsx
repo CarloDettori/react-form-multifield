@@ -52,7 +52,7 @@ function MyForm() {
                     <label
                         htmlFor="postTitle"
                         className="form-label">
-                        New Post Title
+                        <span className="form-title">New Post Title</span>
                     </label>
                     <input
                         type="text"
@@ -64,12 +64,18 @@ function MyForm() {
                     />
                 </div>
 
+                {/* post image */}
+                <div className="mb-3">
+                    <label htmlFor="formFile" className="form-label"><span className="form-title">New post image</span></label>
+                    <input className="form-control" type="file" id="formFile" />
+                </div>
+
                 {/* post content */}
                 <div className="mb-3">
                     <label
                         htmlFor="postContent"
                         className="form-label">
-                        New Post Content
+                        <span className="form-title">New Post Content</span>
                     </label>
                     <input
                         type="text"
@@ -80,8 +86,9 @@ function MyForm() {
                         name="content"
                     />
                 </div>
+                <br />
                 {/*post tag */}
-                <p>New Post Tags</p>
+                <p className="form-title">New Post Tags</p>
                 <ul className="d-flex flex-wrap tag-list">
                     {tagList.map((tag, index) => (
 
@@ -89,6 +96,18 @@ function MyForm() {
                     ))}
 
                 </ul>
+                <br />
+                {/*post publishing */}
+                <p className="form-title">New Post publishing status </p>
+                <div className="d-flex" >
+                    <p className="go-to-dx">Is new post published?</p>
+                    <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                    <label className="form-check-label" htmlFor="flexCheckDefault">
+                        yes
+                    </label>
+
+                </div>
+                <br />
 
                 <button type="submit" className="btn btn-primary">Submit</button>
 
