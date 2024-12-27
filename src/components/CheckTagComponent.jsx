@@ -1,7 +1,7 @@
 
 
 
-function CheckTagComponent({ tag }) {
+function CheckTagComponent({ tag, handleImput }) {
 
 
     return (<li key={tag}>

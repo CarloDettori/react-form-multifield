@@ -4,15 +4,15 @@ import posts from "../data/posts";
 
 function PublishedPostComponent() {
     const postList = [...posts];
-    console.log(postList);
+    //console.log(postList);
     const truePosts = [];
     postList.filter((element) => {
-        console.log(element)
+        //console.log(element)
         if (element.published === true) {
             truePosts.push(element);
         }
     });
-    console.log(truePosts);
+    //console.log(truePosts);
     return truePosts;
 };
 

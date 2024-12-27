@@ -17,7 +17,7 @@ import MyForm from "./MyForm";
 function MainComponent() {
     const publishedPosts = PublishedPostComponent();
     const tagList = TagList();
-    console.log(publishedPosts)
+    //console.log(publishedPosts)
 
     return (
         <>

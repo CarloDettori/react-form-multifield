@@ -15,22 +15,51 @@ const newPost = {
 function MyForm() {
     const [myPost, setMyPost] = useState(newPost)
     const [postList, setPostList] = useState([]);
+    const [checkedTagList, setCheckedTagList] = useState(
+        newPost.tags.map((tag) => false)
+    );
     const tagList = TagList()
-    console.log(tagList)
+    //console.log(tagList)
 
 
     function handleImput(ev) {
         //alert(ev)
         //let fakeNewPost = { ...myPost }
         //fakeNewPost[ev.target.name] = ev.target.value;
-        let value;
+
+
+        let { type, name, value, checked } = ev.target;
+        const KEY = name;
+        const VAL = type == "checkbox" ? checked : value;
+        if (name != "tags") return setMyPost({ ...myPost, [KEY]: VAL });
+        if (checked) {
+            console.log()
+            setMyPost({
+                ...myPost,
+                [KEY]: [myPost.tags, value],
+            });
+        } else if (!checked) {
+            const newTags = myPost.tags.filter((tag) => tag != value);
+            console.log(newTags)
+            setMyPost({ ...myPost, [KEY]: newTags });
+        }
+
+        const newTagsListChecked = checkedTagList.map((isChecked, index) => {
+            if (index == ev.target.getAttribute("tagindex")) {
+                return !isChecked;
+            }
+            return isChecked;
+
+        });
+
+        setCheckedTagList(newTagsListChecked);
         if (ev.target.type === "checkbox") {
             value = ev.target.checked
         } else {
             value = ev.target.value
         }
         setMyPost({ ...myPost, [ev.target.name]: value });
-        //setMyPost(fakeNewPost)
+
 
     }
 
@@ -104,7 +133,7 @@ function MyForm() {
                 <ul className="d-flex flex-wrap tag-list">
                     {tagList.map((tag, index) => (
 
-                        < CheckTagComponent key={`tagOption-${index}`} tag={tag} />
+                        < CheckTagComponent key={`tagOption-${index}`} tag={tag} handleImput={handleImput} />
                     ))}
 
                 </ul>

@@ -15,7 +15,7 @@ function TagList() {
         });
 
     });
-    console.log(tagList)
+    //console.log(tagList)
     return tagList
 }
 //const test = TagList();
