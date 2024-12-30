@@ -28,23 +28,15 @@ function MyForm() {
         //fakeNewPost[ev.target.name] = ev.target.value;
 
 
-        let { type, name, value, checked } = ev.target;
-        const KEY = name;
-        const VAL = type == "checkbox" ? checked : value;
-        if (name != "tags") return setMyPost({ ...myPost, [KEY]: VAL });
+
         if (checked) {
-            console.log()
-            setMyPost({
-                ...myPost,
-                [KEY]: [myPost.tags, value],
-            });
+
+
         } else if (!checked) {
-            const newTags = myPost.tags.filter((tag) => tag != value);
-            console.log(newTags)
-            setMyPost({ ...myPost, [KEY]: newTags });
+
         }
 
-        const newTagsListChecked = checkedTagList.map((isChecked, index) => {
+        const newCheckedTagList = checkedTagList.map((isChecked, index) => {
             if (index == ev.target.getAttribute("tagindex")) {
                 return !isChecked;
             }
@@ -52,7 +44,7 @@ function MyForm() {
 
         });
 
-        setCheckedTagList(newTagsListChecked);
+        setCheckedTagList(newCheckedTagList);
         if (ev.target.type === "checkbox") {
             value = ev.target.checked
         } else {
@@ -71,7 +63,7 @@ function MyForm() {
         //console.log(myPost.content)
         setPostList([...postList, myPost]);
         //setMyPost(newPost);
-        console.log("-1title: " + myPost.title + " -2iamge: " + myPost.image + " -3content: " + myPost.content + " -4tags: " + myPost.tags + " -5published: " + myPost.published)
+        console.log("-1-title: " + myPost.title + " -2-iamge: " + myPost.image + " -3-content: " + myPost.content + " -4-tags: " + myPost.tags + " -5-published: " + myPost.published)
 
     }
 
