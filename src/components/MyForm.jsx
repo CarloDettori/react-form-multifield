@@ -12,7 +12,7 @@ const newPost = {
 }
 
 export const allTagList = [
-    "javascript",
+    "js",
     "html",
     "css",
     "python",
@@ -40,23 +40,13 @@ function MyForm() {
         //alert(ev)
         //let fakeNewPost = { ...myPost }
         //fakeNewPost[ev.target.name] = ev.target.value;
-
-        let { type, name, value, checked } = ev.target
-        const KEY = name
-        const VAL = type == "checkbox" ? checked : value;
-
-        if (name != "tags") return setMyPost({ ...myPost, [KEY]: VAL });
-
-        if (checked) {
-            setMyPost({
-                ...myPost,
-                [KEY]: [...myPost.tags, ev.target.value],
-            });
-        } else if (!checked) {
-            const newTags = myPost.tags.filter((tag) => tag != ev.target.value);
-            setMyPost({ ...myPost, [KEY]: newTags });
+        let newArray = [...myPost.tags, ev.target.id];
+        if (myPost.tags.includes(ev.target.id)) {
+            newArray = newArray.filter(tag => tag !== ev.target.id);
         }
-
+        setCheckedTagList({
+            tags: newArray
+        });
         const newCheckedTagList = checkedTagList.map((isChecked, index) => {
             if (index == ev.target.getAttribute("tagindex")) {
                 return !isChecked;
@@ -64,7 +54,6 @@ function MyForm() {
             return isChecked;
 
         });
-
         setCheckedTagList(newCheckedTagList);
         if (ev.target.type === "checkbox") {
             value = ev.target.checked
@@ -72,8 +61,6 @@ function MyForm() {
             value = ev.target.value
         }
         setMyPost({ ...myPost, [ev.target.name]: value });
-
-
     }
 
     function handleSubmit(ev) {
