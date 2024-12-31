@@ -1,6 +1,6 @@
 import { useState } from "react";
 import CheckTagComponent from "./CheckTagComponent";
-import TagList from "./TagList";
+import PostTagList from "./TagList";
 
 const newPost = {
     id: 0,
@@ -11,6 +11,19 @@ const newPost = {
     published: false,
 }
 
+export const allTagList = [
+    "javascript",
+    "html",
+    "css",
+    "python",
+    "java",
+    "c++",
+    "php",
+    "ruby",
+    "sql",
+    "xml",
+];
+
 
 function MyForm() {
     const [myPost, setMyPost] = useState(newPost)
@@ -18,7 +31,8 @@ function MyForm() {
     const [checkedTagList, setCheckedTagList] = useState(
         newPost.tags.map((tag) => false)
     );
-    const tagList = TagList()
+
+    const tagList = PostTagList()
     //console.log(tagList)
 
 
@@ -27,13 +41,20 @@ function MyForm() {
         //let fakeNewPost = { ...myPost }
         //fakeNewPost[ev.target.name] = ev.target.value;
 
+        let { type, name, value, checked } = ev.target
+        const KEY = name
+        const VAL = type == "checkbox" ? checked : value;
 
+        if (name != "tags") return setMyPost({ ...myPost, [KEY]: VAL });
 
         if (checked) {
-
-
+            setMyPost({
+                ...myPost,
+                [KEY]: [...myPost.tags, ev.target.value],
+            });
         } else if (!checked) {
-
+            const newTags = myPost.tags.filter((tag) => tag != ev.target.value);
+            setMyPost({ ...myPost, [KEY]: newTags });
         }
 
         const newCheckedTagList = checkedTagList.map((isChecked, index) => {
@@ -137,9 +158,10 @@ function MyForm() {
                     <input
                         className="form-check-input"
                         type="checkbox"
-                        value=""
+                        value={myPost.published}
                         id="flexCheckDefault"
                         onChange={(ev) => handleImput(ev)}
+                        name="published"
                     />
                     <label className="form-check-label" htmlFor="flexCheckDefault">
                         yes
