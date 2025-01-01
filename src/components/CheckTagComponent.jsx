@@ -9,7 +9,8 @@ function CheckTagComponent({ tag, handleImput }) {
             <input
                 className="form-check-input"
                 type="checkbox"
-                value="" id={`flexCheckDefault-${tag}`}
+                value=""
+                id={tag}
                 name="tags"
                 onChange={(ev) => handleImput(ev)}
             />

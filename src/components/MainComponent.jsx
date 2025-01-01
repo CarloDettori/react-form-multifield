@@ -15,7 +15,11 @@ import MyForm from "./MyForm";
 // };
 
 function MainComponent() {
-    const publishedPosts = PublishedPostComponent();
+    const [publishedPosts, setPublishedPosts] = usestate(PublishedPostComponent());
+
+    function deleteItem(id) {
+        setPublishedPosts(publishedPosts.filter((el) => el.id !== id))
+    }
     const tagList = TagList();
     //console.log(publishedPosts)
 
@@ -24,7 +28,11 @@ function MainComponent() {
             <main>
                 <div className="d-flex flex-wrap">
                     {publishedPosts.map((post) => (
-                        <CardComponent key={`card-${post.id}`} element={post} />
+                        <CardComponent
+                            key={`card-${post.id}`}
+                            element={post}
+                            onDelete={() => { deleteItem(publishedPosts.id) }}
+                        />
                     ))}
 
                 </div>

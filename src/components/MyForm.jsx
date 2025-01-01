@@ -1,6 +1,6 @@
 import { useState } from "react";
 import CheckTagComponent from "./CheckTagComponent";
-import PostTagList from "./TagList";
+import TagList from "./TagList";
 
 const newPost = {
     id: 0,
@@ -11,19 +11,6 @@ const newPost = {
     published: false,
 }
 
-export const allTagList = [
-    "js",
-    "html",
-    "css",
-    "python",
-    "java",
-    "c++",
-    "php",
-    "ruby",
-    "sql",
-    "xml",
-];
-
 
 function MyForm() {
     const [myPost, setMyPost] = useState(newPost)
@@ -31,8 +18,7 @@ function MyForm() {
     const [checkedTagList, setCheckedTagList] = useState(
         newPost.tags.map((tag) => false)
     );
-
-    const tagList = PostTagList()
+    const tagList = TagList()
     //console.log(tagList)
 
 
@@ -40,13 +26,16 @@ function MyForm() {
         //alert(ev)
         //let fakeNewPost = { ...myPost }
         //fakeNewPost[ev.target.name] = ev.target.value;
-        let newArray = [...myPost.tags, ev.target.id];
-        if (myPost.tags.includes(ev.target.id)) {
-            newArray = newArray.filter(tag => tag !== ev.target.id);
+
+
+
+        if (checked) {
+
+
+        } else if (!checked) {
+
         }
-        setCheckedTagList({
-            tags: newArray
-        });
+
         const newCheckedTagList = checkedTagList.map((isChecked, index) => {
             if (index == ev.target.getAttribute("tagindex")) {
                 return !isChecked;
@@ -54,6 +43,7 @@ function MyForm() {
             return isChecked;
 
         });
+
         setCheckedTagList(newCheckedTagList);
         if (ev.target.type === "checkbox") {
             value = ev.target.checked
@@ -61,6 +51,8 @@ function MyForm() {
             value = ev.target.value
         }
         setMyPost({ ...myPost, [ev.target.name]: value });
+
+
     }
 
     function handleSubmit(ev) {
@@ -145,10 +137,9 @@ function MyForm() {
                     <input
                         className="form-check-input"
                         type="checkbox"
-                        value={myPost.published}
+                        value=""
                         id="flexCheckDefault"
                         onChange={(ev) => handleImput(ev)}
-                        name="published"
                     />
                     <label className="form-check-label" htmlFor="flexCheckDefault">
                         yes
