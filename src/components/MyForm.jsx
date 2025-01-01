@@ -2,6 +2,8 @@ import { useState } from "react";
 import CheckTagComponent from "./CheckTagComponent";
 import TagList from "./TagList";
 
+
+
 const newPost = {
     id: 0,
     title: '',

@@ -1,11 +1,13 @@
 
 import ButtonComponent from "./ButtonComponent";
-import DeleteButtonComponent from "./DeleteButtonComponent";
+
 
 
 
 function CardComponent({ element }) {
-
+    function deleteItem(id) {
+        setPublishedPosts(publishedPosts.filter((el) => el.id !== id))
+    }
     // let template = [];
     // props.posts.map((element, index) => {
     //     // let postTags = [];

@@ -1,9 +1,20 @@
-
+import { useState } from "react";
 import PublishedPostComponent from "./PublishedPostComponent";
 import CardComponent from "./CardComponent";
-import TagList from "./TagList";
 import MyForm from "./MyForm";
 
+const tagList = [
+    "javascript",
+    "html",
+    "css",
+    "python",
+    "java",
+    "c++",
+    "php",
+    "ruby",
+    "sql",
+    "xml",
+];
 
 // const bestPost = {
 //     id: 2,
@@ -15,12 +26,11 @@ import MyForm from "./MyForm";
 // };
 
 function MainComponent() {
-    const [publishedPosts, setPublishedPosts] = usestate(PublishedPostComponent());
+    const [publishedPosts, setPublishedPosts] = useState(PublishedPostComponent());
 
     function deleteItem(id) {
         setPublishedPosts(publishedPosts.filter((el) => el.id !== id))
     }
-    const tagList = TagList();
     //console.log(publishedPosts)
 
     return (
