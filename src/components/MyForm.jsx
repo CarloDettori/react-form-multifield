@@ -1,13 +1,14 @@
 import { useState } from "react";
-import CheckTagComponent from "./CheckTagComponent";
-import TagList from "./TagList";
+import posts from "../data/posts";
+//import CheckTagComponent from "./CheckTagComponent";
+//import TagList from "./TagList";
 
 const newPost = {
     id: 0,
     title: '',
     image: '',
     content: '',
-    tags: [],
+    tags: 'lezione-7-gennaio',
     published: false,
 }
 
@@ -15,11 +16,11 @@ const newPost = {
 function MyForm() {
     const [myPost, setMyPost] = useState(newPost)
     const [postList, setPostList] = useState([]);
-    const [checkedTagList, setCheckedTagList] = useState(
-        newPost.tags.map((tag) => false)
-    );
-    const tagList = TagList()
-    //console.log(tagList)
+    // const [checkedTagList, setCheckedTagList] = useState(
+    //     newPost.tags.map((tag) => false)
+    // );
+    // const tagList = TagList()
+    // //console.log(tagList)
 
 
     function handleImput(ev) {
@@ -29,35 +30,35 @@ function MyForm() {
 
 
         let { type, name, value, checked } = ev.target;
-        const KEY = name;
-        const VAL = type == "checkbox" ? checked : value;
-        if (name != "tags") return setMyPost({ ...myPost, [KEY]: VAL });
-        if (checked) {
-            console.log()
-            setMyPost({
-                ...myPost,
-                [KEY]: [myPost.tags, value],
-            });
-        } else if (!checked) {
-            const newTags = myPost.tags.filter((tag) => tag != value);
-            console.log(newTags)
-            setMyPost({ ...myPost, [KEY]: newTags });
-        }
+        // const KEY = name;
+        // const VAL = type == "checkbox" ? checked : value;
+        // if (name != "tags") return setMyPost({ ...myPost, [KEY]: VAL });
+        // if (checked) {
+        //     console.log()
+        //     setMyPost({
+        //         ...myPost,
+        //         [KEY]: [myPost.tags, value],
+        //     });
+        // } else if (!checked) {
+        //     const newTags = myPost.tags.filter((tag) => tag != value);
+        //     console.log(newTags)
+        //     setMyPost({ ...myPost, [KEY]: newTags });
+        // }
 
-        const newTagsListChecked = checkedTagList.map((isChecked, index) => {
-            if (index == ev.target.getAttribute("tagindex")) {
-                return !isChecked;
-            }
-            return isChecked;
+        // const newTagsListChecked = checkedTagList.map((isChecked, index) => {
+        //     if (index == ev.target.getAttribute("tagindex")) {
+        //         return !isChecked;
+        //     }
+        //     return isChecked;
 
-        });
+        // });
 
-        setCheckedTagList(newTagsListChecked);
-        if (ev.target.type === "checkbox") {
-            value = ev.target.checked
-        } else {
-            value = ev.target.value
-        }
+        // setCheckedTagList(newTagsListChecked);
+        // if (ev.target.type === "checkbox") {
+        //     value = ev.target.checked
+        // } else {
+        //     value = ev.target.value
+        // }
         setMyPost({ ...myPost, [ev.target.name]: value });
 
 
@@ -72,6 +73,8 @@ function MyForm() {
         setPostList([...postList, myPost]);
         //setMyPost(newPost);
         console.log("-1title: " + myPost.title + " -2iamge: " + myPost.image + " -3content: " + myPost.content + " -4tags: " + myPost.tags + " -5published: " + myPost.published)
+        posts.push(myPost);
+        console.log(posts)
 
     }
 
@@ -131,10 +134,10 @@ function MyForm() {
                 {/*post tag */}
                 <p className="form-title">New Post Tags</p>
                 <ul className="d-flex flex-wrap tag-list">
-                    {tagList.map((tag, index) => (
+                    {/* {tagList.map((tag, index) => (
 
                         < CheckTagComponent key={`tagOption-${index}`} tag={tag} handleImput={handleImput} />
-                    ))}
+                    ))} */}
 
                 </ul>
                 <br />
