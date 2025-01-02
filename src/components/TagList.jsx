@@ -1,5 +1,5 @@
 import posts from "../data/posts";
-function UsedTagList() {
+function TagList() {
     const tagList = [];
     const allTags = posts.forEach(element => {
         //console.log(element);
@@ -20,4 +20,4 @@ function UsedTagList() {
 }
 //const test = TagList();
 //console.log(test);
-export default UsedTagList;
+export default TagList;

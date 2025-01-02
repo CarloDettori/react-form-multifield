@@ -2,12 +2,8 @@
 import ButtonComponent from "./ButtonComponent";
 
 
-
-
 function CardComponent({ element }) {
-    function deleteItem(id) {
-        setPublishedPosts(publishedPosts.filter((el) => el.id !== id))
-    }
+
     // let template = [];
     // props.posts.map((element, index) => {
     //     // let postTags = [];
@@ -16,7 +12,6 @@ function CardComponent({ element }) {
     //     // template.push()
     // })
     //console.log(template)
-
     return (
         <div className="card" >
             <img src={element.image} alt="600x400img" />
@@ -33,15 +28,6 @@ function CardComponent({ element }) {
                 </div>
                 <p>{element.content}</p>
                 <ButtonComponent />
-                <button
-                    id="delete-button"
-                    type="button"
-                    className="btn btn-warning"
-                    onClick={onDelete}
-                >
-                    cancella
-                </button>
-
             </div>
         </div>
     )

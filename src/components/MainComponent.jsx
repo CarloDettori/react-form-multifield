@@ -1,20 +1,9 @@
-import { useState } from "react";
+
 import PublishedPostComponent from "./PublishedPostComponent";
 import CardComponent from "./CardComponent";
+import TagList from "./TagList";
 import MyForm from "./MyForm";
 
-const tagList = [
-    "javascript",
-    "html",
-    "css",
-    "python",
-    "java",
-    "c++",
-    "php",
-    "ruby",
-    "sql",
-    "xml",
-];
 
 // const bestPost = {
 //     id: 2,
@@ -26,11 +15,8 @@ const tagList = [
 // };
 
 function MainComponent() {
-    const [publishedPosts, setPublishedPosts] = useState(PublishedPostComponent());
-
-    function deleteItem(id) {
-        setPublishedPosts(publishedPosts.filter((el) => el.id !== id))
-    }
+    const publishedPosts = PublishedPostComponent();
+    const tagList = TagList();
     //console.log(publishedPosts)
 
     return (
@@ -38,11 +24,7 @@ function MainComponent() {
             <main>
                 <div className="d-flex flex-wrap">
                     {publishedPosts.map((post) => (
-                        <CardComponent
-                            key={`card-${post.id}`}
-                            element={post}
-                            onDelete={() => { deleteItem(publishedPosts.id) }}
-                        />
+                        <CardComponent key={`card-${post.id}`} element={post} />
                     ))}
 
                 </div>
