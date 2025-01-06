@@ -3,6 +3,12 @@ import posts from "../data/posts";
 //import CheckTagComponent from "./CheckTagComponent";
 //import TagList from "./TagList";
 
+const initialPost = {
+    name: "",
+    price: 0,
+    available: false,
+};
+
 const newPost = {
     id: 0,
     title: '',
@@ -14,6 +20,7 @@ const newPost = {
 
 
 function MyForm() {
+    const [formPost, setFormPost] = useState(initialPost);
     const [myPost, setMyPost] = useState(newPost)
     const [postList, setPostList] = useState([]);
     // const [checkedTagList, setCheckedTagList] = useState(
@@ -75,7 +82,7 @@ function MyForm() {
         console.log("-1title: " + myPost.title + " -2iamge: " + myPost.image + " -3content: " + myPost.content + " -4tags: " + myPost.tags + " -5published: " + myPost.published)
         posts.push(myPost);
         console.log(posts)
-
+        setFormPost(initialPost);
     }
 
     return (
